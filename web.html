@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    Technixia
+</title>
+    <link rel="icon" type="image/png" href="./favicon-16x16.png">
+<style>
+  .slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slides {
+    display: flex;
+    transition: all 0.5s ease;
+  }
+
+  .slide {
+    width: 100%;
+    flex: 0 0 auto;
+    height: 900px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    text-transform: uppercase;
+  }
+
+  .navbar a:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .navbar .menu .demo-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .navbar .menu {
+    display: flex;
+  }
+  .main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; 
+    padding: 4rem; 
+  }
+  .text-content {
+    flex: 1;
+    padding-left: 1rem; 
+  }
+
+  .text-content h2 {
+    font-size: 3rem;
+    color: #333;
+    text-align: left;
+  }
+
+  .text-content p {
+   
+    font-size: 16px;
+    line-height: 30px;
+    color: #363636;
+    font-weight: 400;
+    margin: 0;
+    
+  }
+
+  .text-content .explore-button {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s;
+  }
+
+  .text-content .explore-button:hover {
+    background-color: #333;
+  }
+
+  .image-content {
+    flex: 1;
+    order: -1;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: 700px;
+    object-fit: fill;
+  }
+  .best-sellers-section {
+    text-align: center;
+  }
+
+  .best-sellers-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .best-sellers-section h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 50px; /* Length of the underline */
+    height: 4px;
+    background-color: #333; /* Color of the underline */
+    border-radius: 2px;
+  }
+
+  .view-all-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #333; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 0.5rem 2rem;
+    margin-top: 2rem;
+    border-radius: 20px; /* Rounded corners for the button */
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .view-all-button:hover {
+    background-color: #555; /* Darker shade on hover */
+  }
+
+  .section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px; /* Adjust the padding as needed */
+    background-color: #f0f0f0; /* Example background color */
+  }
+
+  .text-content1 {
+    max-width: 45%; /* Adjust the width as needed */
+    text-align: left; /* Align text to the left */
+  }
+
+  .text-content1 h2 {
+    font-size: 2.5rem; /* Adjust font size as needed */
+    margin-bottom: 0.5em;
+    color: #333; /* Example text color */
+  }
+
+  .text-content1 p {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    margin-bottom: 2em;
+    color: #666; /* Example text color */
+  }
+
+  .explore-button1 {
+    padding: 10px 20px;
+    background-color: #000; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 20px; /* Rounded button edges */
+    cursor: pointer;
+    text-transform: uppercase; /* Capitalize text */
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block; /* Allows padding and background color */
+  }
+
+  .explore-button1:hover {
+    background-color: #444; /* Darken button color on hover */
+  }
+
+  .image-content1 {
+    max-width: 45%; /* Adjust the width as needed */
+    text-align: right; /* Align image to the right */
+  }
+
+  .image-content1 img {
+    width: 100%;
+    height: 700px;
+    object-fit: fill;
+  }
+  .section1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px; /* Adjust as needed */
+  }
+
+  .image-areaa {
+    flex: 1;
+    text-align: left; 
+    padding-right: 2rem; 
+  }
+
+  .image-areaa img {
+    width: 100%; 
+    height: auto;
+  }
+
+  .text-areaa {
+    flex: 1;
+    text-align: left;
+    padding-left: 2rem; 
+  }
+
+  .text-areaa h2 {
+    font-size: 2.5rem; 
+    color: #333; 
+    margin-bottom: 0.5em;
+  }
+
+  .text-areaa p {
+    font-size: 1.2rem; 
+    color: #666; 
+    margin-bottom: 1em;
+  }
+
+  .text-areaa button {
+    background-color: #000; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .text-areaa button:hover {
+    background-color: #444; 
+  }
+  .recognition-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+    background: #f5f5f5; 
+  }
+
+  .recognition-logo {
+    flex: 1;
+    min-width: 150px; 
+    text-align: center;
+    padding: 1rem;
+  }
+
+
+  .recognition-logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .testimonials-section {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .footer {
+    background-color: #f2f2f2; /* Adjust the color to match your brand */
+    padding: 40px; /* Adjust the padding to match the screenshot */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    gap: 20px; /* Adjust the gap to your preference */
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-column h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em; /* Adjust space under the header */
+  }
+
+  .footer-column p,
+  .footer-column a {
+    margin-bottom: 0.5em; /* Adjust space between paragraph lines and links */
+  }
+
+  .footer-column a {
+    text-decoration: none;
+    color: #000; /* Adjust link color */
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-socials {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 1em;
+  }
+
+  .footer-socials li {
+    margin-right: 10px; /* Adjust the space between icons */
+  }
+
+  .footer-socials a {
+    text-decoration: none;
+  }
+
+  .footer-socials img {
+    width: 24px; /* Adjust icon size */
+    height: auto;
+  }
+
+  .footer-contact {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-contact a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000; /* Adjust link color */
+  }
+
+  .footer-contact img {
+    margin-right: 5px; /* Adjust the space between the icon and text */
+  }
+
+  .footer-rights {
+    grid-column: 1 / -1; /* Spans across all columns */
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footprints-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff; /* Change background color as needed */
+  }
+  .footprint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footprint-icon {
+    font-size: 48px; /* Adjust size as needed */
+    margin-bottom: 10px;
+    /* Here you'd add your icon classes, or replace with image tags */
+  }
+  .footprint-number {
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+  }
+  .footprint-text {
+    font-size: 16px; /* Adjust size as needed */
+  }
+  
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="./FinalLogo.png" height="70" width="130">
+        </div>
+        <div class="menu">
+          <a href="active">Home</a>
+          <a href="#">Products</a>
+          <a href="#">Contact</a>
+          <a href="#">About</a>
+          <a href="#" class="demo-button">Book Free Demo</a>
+        </div>
+      </div>
+            
+
+    <div class="slider">
+        <div class="slides">
+            <!-- Slides go here -->
+            <div class="slide" style="background-image: url('./img4.jpg');"></div>
+            <div class="slide" style="background-image: url('./img2.jpg');"></div>
+            <div class="slide" style="background-image: url('./img3.jpg');"></div>
+            <div class="slide" style="background-image: url('./img4.jpg');"></div>
+            <div class="slide" style="background-image: url('./img5.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="best-sellers-section">
+        <h2>Best Sellers</h2>
+        <br><br>
+        <a href="#" class="view-all-button">View All</a>
+      </div>
+
+    <div class="main-content">
+        <div class="text-content">
+          <h2>Smart Touches Switches</h2>
+          <p>We Specialize in revolutionizing the way you interact with the world through cutting-edge intelligent sensing solutions with our smart Sensors.</p>
+          <a href="#" class="explore-button">Explore Now</a>
+        </div>
+        <div class="image-content">
+          <img src="./img8.jpg" alt="Smart Sensors">
+        </div>
+    </div>
+    <div class="section">
+        <div class="text-content1">
+          <h2>Smart Sensors</h2>
+          <p>We Specialize in revolutionizing the way you interact with the world through cutting-edge intelligent sensing solutions with our smart Sensors.</p>
+          <a href="#" class="explore-button1">Explore Now</a>
+        </div>
+        <div class="image-content1">
+          <!-- Replace with your actual image source -->
+          <img src="./img9.jpeg" alt="Smart Sensors">
+        </div>
+      </div>
+      <div class="section1">
+        <div class="image-areaa">
+          <!-- Replace with your actual image -->
+          <img src="./img6.jpg" alt="Smart Door Locks">
+        </div>
+        <div class="text-areaa">
+          <h2>Smart Door Lock</h2>
+          <p>Upgrade your home or business with the latest in access control technology. Explore our range of smart door locks and discover the convenience, security, and peace of mind they bring.</p>
+          <button>Explore Now</button>
+        </div>
+      </div>
+      <br>
+      <div class="best-sellers-section">
+        <h2>OUR FOOTPRINTS</h2>
+      </div>
+      <br><br>
+
+      <div class="footprints-container">
+        <div class="footprint">
+          <div class="footprint-icon">🏠</div>
+          <div class="footprint-number">50K+</div>
+          <div class="footprint-text">Smart Homes</div>
+        </div>
+        <div class="footprint">
+          <div class="footprint-icon">📱</div>
+          <div class="footprint-number">32K+</div>
+          <div class="footprint-text">Android & iOS Users</div>
+        </div>
+        <div class="footprint">
+          <div class="footprint-icon">🏙️</div>
+          <div class="footprint-number">25K+</div>
+          <div class="footprint-text">Cities</div>
+        </div>
+        <div class="footprint">
+          <div class="footprint-icon">📦</div>
+          <div class="footprint-number">200K+</div>
+          <div class="footprint-text">Products Sold</div>
+        </div>
+        <div class="footprint">
+          <div class="footprint-icon">🏡</div>
+          <div class="footprint-number">200K+</div>
+          <div class="footprint-text">5 Star Reviews</div>
+        </div>
+      </div>
+      <br><br>
+      
+      </div>
+      <footer class="footer">
+        <div class="footer-column">
+          <img src="./FinalLogo.png" alt="Technixia logo" style="width: 150px;"> <!-- Adjust your logo size here -->
+          <p>Technixia Automation Pvt. Ltd provides industrial, commercial and Home automation solutions with a goal to make people's life better, effortless & smarter</p>
+        </div>
+      
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="#">Smart Switches</a>
+          <a href="#">Smart Locks</a>
+          <a href="#">Smart Sensors</a>
+        </div>
+      
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="#">About Us</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <br>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <address>
+            LB House, 162/A/107/1, Lake Garden, Kolkata - 700045
+          </address>
+          <a href="tel:+919163436948">(+91) 9163436948</a>
+          <a href="mailto:contact@technixia.com">contact@technixia.com</a>
+        </div>
+      
+        <ul class="footer-socials">
+          <!-- Replace # with your social media links and icon-path with the path to your icons -->
+          <li><a href="#"><img src="./face.svg" alt="Facebook"></a></li>
+          <li><a href="#"><img src="./twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="./instagram.png" alt="Instagram"></a></li>
+          <li><a href="#"><img src="./linkedin.png" alt="LinkedIn"></a></li>
+        </ul>
+      
+        <div class="footer-rights">
+          <p>2023, Technixia Automation Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+      </footer>
+      
+
+
+<script>
+  const slides = document.querySelector('.slides');
+  let index = 0;
+
+  function nextSlide() {
+    index = (index + 1) % slides.children.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(nextSlide, 3000); // Change every 3000 milliseconds (3 seconds)
+</script>
+
+</body>
+</html>
